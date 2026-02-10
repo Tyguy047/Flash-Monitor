@@ -11,6 +11,20 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        return new Window(new AppShell());
+        
+        Page startPage;
+
+        if (Preferences.ContainsKey("PrinterIp"))
+        {
+            // Already configured — go straight to monitoring
+            startPage = new MainPage();
+        }
+        else
+        {
+            // First launch — show setup
+            startPage = new SetupPage();
+        }
+        
+        return new Window(new NavigationPage(startPage));
     }
 }

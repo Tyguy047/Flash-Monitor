@@ -9,6 +9,9 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
+    // Get the printer IP with:
+    // string printerIp = Preferences.Get("PrinterIp", string.Empty);
+    
     private void OnCounterClicked(object? sender, EventArgs e)
     {
         count++;
@@ -19,5 +22,11 @@ public partial class MainPage : ContentPage
             CounterBtn.Text = $"Clicked {count} times";
 
         SemanticScreenReader.Announce(CounterBtn.Text);
+    }
+
+    private void OnResetClicked(object? sender, EventArgs e)
+    {
+        Preferences.Remove("PrinterIp");
+        Application.Current!.Windows[0].Page = new NavigationPage(new SetupPage());
     }
 }
