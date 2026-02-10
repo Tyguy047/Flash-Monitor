@@ -2,14 +2,17 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Flash_Monitor.SetupPage">
-    <ContentPage.Content>
+             x:Class="Flash_Monitor.SetupPage"
+             NavigationPage.HasNavigationBar="False">
+       
+       <ContentPage.Content>
         
         <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
             
             <Label Text="Welcome to Flash Monitor!"
-                   FontSize="22"
-                   HorizontalTextAlignment="Center" />
+                   Style="{StaticResource Headline}"
+                   SemanticProperties.HeadingLevel="Level1"
+                   HorizontalTextAlignment="Center"/>
             
             <Label Text="Flash Monitor is an Open Source alternative to the official Flash Maker app."
                    FontSize="16"
@@ -18,11 +21,17 @@
             <Label Text="To get started, enter your Flash Forge 3D printer's IP address..."
                    FontSize="16" />
             
-            <Entry x:Name="IpEntry"
+            <Entry
+                   x:Name="NameEntry"
+                   Placeholder="e.g. A Fun Name For Your Printer..."
+                   />
+            
+            <Entry
+                   x:Name="IpEntry"
                    Placeholder="e.g. 192.168.0.1"
                    Keyboard="Url" />
             
-            <Button Text="Set IP &amp; Continue"
+            <Button Text="Set &amp; Continue"
                     Clicked="OnSaveClicked" />
             
             <Label Text="Why does the Flash Monitor app need this?" FontSize="22" />
