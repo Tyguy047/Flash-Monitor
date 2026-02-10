@@ -30,6 +30,18 @@
                    x:Name="IpEntry"
                    Placeholder="e.g. 192.168.0.1"
                    Keyboard="Url" />
+
+            <Label Text="Optional Features" FontSize="18" FontAttributes="Bold" />
+
+            <HorizontalStackLayout Spacing="10">
+                   <CheckBox x:Name="HasLightCheckBox" />
+                   <Label Text="Printer has light" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                   <CheckBox x:Name="HasCameraCheckBox" />
+                   <Label Text="Printer has camera" VerticalOptions="Center" />
+            </HorizontalStackLayout>
             
             <Button Text="Set &amp; Continue"
                     Clicked="OnSaveClicked" />

@@ -28,6 +28,12 @@ public partial class SetupPage : ContentPage
         Preferences.Set("PrinterIp", ip);
         Preferences.Set("PrinterName", name);
 
+        bool printerHasLight = HasLightCheckBox.IsChecked;
+        bool printerHasCam = HasCameraCheckBox.IsChecked;
+
+        Preferences.Set("PrinterHasLight", printerHasLight);
+        Preferences.Set("PrinterHasCam", printerHasCam);
+
         // Navigate to MainPage, replacing the navigation stack
         Application.Current!.Windows[0].Page = new NavigationPage(new MainPage());
     }

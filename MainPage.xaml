@@ -16,7 +16,38 @@
             
             <!-- Print Status... -->
             
-            <!-- Live Feed (will need to see if printer supports it!)...-->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button
+                    x:Name="PauseButton"
+                    Clicked="OnPauseClicked"
+                    Text="Pause"
+                    />
+                
+                <Button
+                    x:Name="ResumeButton"
+                    Clicked="OnResumeClicked"
+                    Text="Resume"
+                    />
+                
+                <Button
+                    x:Name="StopButton"
+                    Clicked="OnStopClicked"
+                    Text="Stop"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    />
+                
+            </HorizontalStackLayout>
+                
+            <HorizontalStackLayout x:Name="LightControls" Spacing="10" HorizontalOptions="Center">
+                
+                <Switch
+                    x:Name="LightSwitch"
+                    Toggled="OnLightToggleClicked"/>
+                
+            </HorizontalStackLayout>
+            
+            <!-- Live Feed (will need to see if the printer supports it!)...-->
             
             <Button
                 Text="RESET STORED IP"
