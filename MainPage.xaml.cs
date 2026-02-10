@@ -1,4 +1,5 @@
 ﻿namespace Flash_Monitor;
+using System.Net.Http;
 
 public partial class MainPage : ContentPage
 {
@@ -8,12 +9,14 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
         PrinterName.Text = Preferences.Get("PrinterName", "Printer");
         
-        // Widget functions here...
+        string printerIp = Preferences.Get("PrinterIp", string.Empty);
+        string result = await GetDataAsync($"http://{printerIp}/endpoint/location/here"); // Incomplete, this is not a real endpoint, and the real one needs auth!
+        Console.WriteLine(result);
         
     }
 
@@ -24,5 +27,22 @@ public partial class MainPage : ContentPage
     {
         Preferences.Remove("PrinterIp");
         Application.Current!.Windows[0].Page = new NavigationPage(new SetupPage());
+    }
+
+    private readonly HttpClient _httpClient = new();
+
+    private async Task<string> GetDataAsync(string url)
+    {
+        try
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
+        }
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine($"Request failed: {ex.Message}");
+            return string.Empty;
+        }
     }
 }
