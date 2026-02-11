@@ -17,8 +17,48 @@
             <!-- Print Status... -->
             <VerticalStackLayout x:Name="PrintProg" Spacing="5">
                 <Label Text="Print Progress..." HorizontalOptions="Center" />
-                <ProgressBar x:Name="PrintProgressBar" Progress="0" ProgressColor="Orange" />
+                <ProgressBar x:Name="PrintProgressBar" Progress="0.7" ProgressColor="DodgerBlue" />
             </VerticalStackLayout>
+            
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                
+                <!-- Nozzle Temp -->
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Nozzle: "
+                        />
+                    
+                    <Label
+                        x:Name="NozTemp"
+                        Text="Error"
+                    />
+                </HorizontalStackLayout>
+                
+                <!-- Bed Temp -->
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Bed: "
+                        />
+                    
+                    <Label
+                        x:Name="BedTemp"
+                        Text="Error"
+                    />
+                </HorizontalStackLayout>
+                
+                <!-- Internal Temp -->
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Internal: "
+                        />
+                    
+                    <Label
+                        x:Name="InternalTemp"
+                        Text="Error"
+                    />
+                </HorizontalStackLayout>
+                
+            </HorizontalStackLayout>
             
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
                 <Button
