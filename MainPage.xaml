@@ -15,6 +15,10 @@
             <!-- Image of what's printing... -->
             
             <!-- Print Status... -->
+            <VerticalStackLayout x:Name="PrintProg" Spacing="5">
+                <Label Text="Print Progress..." HorizontalOptions="Center" />
+                <ProgressBar x:Name="PrintProgressBar" Progress="0" ProgressColor="Orange" />
+            </VerticalStackLayout>
             
             <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
                 <Button
@@ -40,6 +44,10 @@
             </HorizontalStackLayout>
                 
             <HorizontalStackLayout x:Name="LightControls" Spacing="10" HorizontalOptions="Center">
+                
+                <Label
+                    Text="Toggle Printer Light"
+                    />
                 
                 <Switch
                     x:Name="LightSwitch"

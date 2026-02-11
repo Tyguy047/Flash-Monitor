@@ -17,16 +17,21 @@ public partial class SetupPage : ContentPage
     {
         var ip = IpEntry.Text?.Trim();
         var name = NameEntry.Text?.Trim();
+        var sn = SnEntry.Text?.Trim();
+        var checkCode = CheckCodeEntry.Text?.Trim();
 
-        if (string.IsNullOrWhiteSpace(ip) || string.IsNullOrWhiteSpace(name))
+        if (string.IsNullOrWhiteSpace(ip) || string.IsNullOrWhiteSpace(name)
+            || string.IsNullOrWhiteSpace(sn) || string.IsNullOrWhiteSpace(checkCode))
         {
-            await DisplayAlert("Error", "Please enter a valid IP address and name.", "OK");
+            await DisplayAlertAsync("Error", "Please fill in all required fields.", "OK");
             return;
         }
 
-        // Save the IP using MAUI Preferences
+        // Save the printer config using MAUI Preferences
         Preferences.Set("PrinterIp", ip);
         Preferences.Set("PrinterName", name);
+        Preferences.Set("PrinterSn", sn);
+        Preferences.Set("PrinterCheckCode", checkCode);
 
         bool printerHasLight = HasLightCheckBox.IsChecked;
         bool printerHasCam = HasCameraCheckBox.IsChecked;

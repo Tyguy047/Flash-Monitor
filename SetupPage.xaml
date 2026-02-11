@@ -18,18 +18,25 @@
                    FontSize="16"
                    HorizontalTextAlignment="Center" />
             
-            <Label Text="To get started, enter your Flash Forge 3D printer's IP address..."
+            <Label Text="To get started, enter a nickname for your Flash Forge 3D printer, it's IP address, serial number, and check code..."
                    FontSize="16" />
             
             <Entry
                    x:Name="NameEntry"
-                   Placeholder="e.g. A Fun Name For Your Printer..."
-                   />
+                   Placeholder="e.g. A Fun Name For Your Printer..." />
             
             <Entry
                    x:Name="IpEntry"
-                   Placeholder="e.g. 192.168.0.1"
+                   Placeholder="Printer IP Address (e.g. 192.168.0.1)"
                    Keyboard="Url" />
+            
+            <Entry
+                   x:Name="SnEntry"
+                   Placeholder="Serial Number (e.g. 00000000000)" />
+
+            <Entry
+                   x:Name="CheckCodeEntry"
+                   Placeholder="Check Code (e.g. abcdef123456)" />
 
             <Label Text="Optional Features" FontSize="18" FontAttributes="Bold" />
 
